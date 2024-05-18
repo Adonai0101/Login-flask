@@ -30,9 +30,9 @@ async function loginPost(){
         window.location.href = '/dashboard'
     }
     catch (error) {
-
+        msjError = ""
         showLoader()
-        msjError = error.response.data.msj
+        //msjError = error.response.data.msj
         showToast('Error al ingresar',msjError,'danger') 
     }
 }
