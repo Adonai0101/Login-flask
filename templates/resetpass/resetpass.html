@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/loginSlider.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/loader.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/toast.css') }}">
+
+  <title>Files Store</title>
+
+</head>
+
+<body>
+
+  <div class="toast ">
+
+    <div class="toast-head">
+      <div class="color-ico"></div>
+      <h4 id="message">Message</h4>
+      <div class="cont-icon-close" onclick="showToast()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-x"
+          viewBox="0 0 16 16">
+          <path
+            d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
+        </svg>
+      </div>
+    </div>
+
+    <div class="toast-body">
+      <p id="bodymessage">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis sint reiciendis atque
+        pariatur? Nulla, debitis non maxime perferendis assumenda illo consequatur neque esse placeat ipsum numquam unde
+        repellendus possimus ullam.</p>
+    </div>
+
+  </div>
+
+
+  <!--Pantalla de carga-->
+  <div class="pantalla-carga">
+    <div class="lds-ellipsis">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+
+  <main>
+
+    <div id="contenedor-padre">
+      <div id="slider">
+        <div class="contenido-div">
+          <div class="col-img">
+            <img src="{{ url_for('static', filename='img/forgotpassword.svg') }}" alt="">
+          </div>
+
+          <div class="col-form">
+
+            <div class="">
+              <h1>Restablecer contraseña</h1>
+            </div>
+
+            <form>
+              <div class="cont-input">
+                <label for="">Correo electrónico</label>
+                <input type="email" placeholder="abc@gmail.com" name="" id="emailrest">
+              </div>
+              <button id="sendEmailReset">Restablecer</button>
+            </form>
+
+            <p>Enviaremos un correo electrónico con el código de recuperación</p>
+            <p><a href="/dashboard">ir al inicio</a></p>
+
+          </div>
+        </div>
+        <div class="contenido-div">
+          <div class="col-img">
+            <img src="{{ url_for('static', filename='img/resetpass.svg') }}" alt="">
+          </div>
+
+          <div class="col-form">
+
+            <div class="">
+              <h1>Restaurar Contraseña</h1>
+            </div>
+
+            <form id="registroForm">
+              <div class="cont-input">
+                <label for="">Codigo </label>
+                <input type="text" placeholder="FGHJSKDJH" name="" id="coderest">
+              </div>
+              <div class="cont-input">
+                <label for="">Nueva contraseña</label>
+                <input type="password" id="newpass">
+              </div>
+
+              <button id="rescode">Resetear contraseña</button>
+            </form>
+            <p>El código debe estar en tu correo electrónico; esto puede demorar hasta un minuto.</p>
+            <p> <span onclick="moverSlider(-1)">Intentar de nuevo</span></p>
+
+          </div>
+        </div>
+        <div class="contenido-div">
+          <div class="col-img">
+
+          </div>
+
+          <div class="col-form">
+
+            <div class="">
+              <h1>Valida tu email</h1>
+            </div>
+
+            </form>
+
+            s
+
+          </div>
+        </div>
+        <div class="contenido-div">Div 4
+          <button onclick="moverSlider(-1)">Anterior</button>
+          <button onclick="moverSlider(1)">Siguiente</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    function showLoader() {
+      let pantallaCarga = document.querySelector('.pantalla-carga')
+      pantallaCarga.classList.toggle('active')
+    }
+
+    function showToast(msj, descripcion, error) {
+      //Modificando el toast segun se ocupe
+
+      const mensaje = document.getElementById('message')
+      mensaje.innerHTML = msj
+
+      const bodymsj = document.getElementById('bodymessage')
+      bodymsj.innerHTML = descripcion
+
+      const color = document.querySelector('.color-ico')
+      color.classList.add(error)
+
+      let toast = document.querySelector('.toast')
+      toast.classList.toggle('active')
+
+      setTimeout(() => {
+        toast.classList.toggle('active')
+      }, 3000)
+    }
+  </script>
+  <script src="{{ url_for('static', filename='js/login/loginSlider.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/resetpass/resetpass.js') }}"></script>
+</body>
+
+</html>

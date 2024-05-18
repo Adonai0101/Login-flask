@@ -1,0 +1,190 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+
+}
+
+main {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+#contenedor-padre {
+    max-width: 1000px;
+    height: 500px;
+    overflow: hidden;
+    position: relative;
+}
+
+#slider {
+    display: flex;
+    width: 4000px;
+    /* Actualiza esto según el número de slides que tengas */
+    transition: transform 0.5s ease;
+}
+
+.contenido-div {
+    width: 1000px;
+    height: 500px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+
+}
+
+.col-img{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.col-img img {
+    width: 100%;
+}
+
+.col-form {
+    width: 100%;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+.cont-tittle {
+    position: relative;
+    background-color: red !important;
+}
+
+.cont-tittle h1 {
+    text-align: center;
+    background: white;
+    padding: 0 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+.cont-tittle hr {
+    height: 10px;
+    background: rgb(17, 31, 43);
+}
+
+.col-form form {
+    display: grid;
+    gap: 20px;
+}
+
+.col-form form button {
+    height: 40px;
+    border: none;
+    width: 100%;
+    background: rgb(17, 31, 43);
+    border-radius: 5px;
+    font-weight: bold;
+    letter-spacing: 1.2px;
+    font-size: 20px;
+    cursor: pointer;
+    color: white;
+    letter-spacing: 2px;
+}
+
+.cont-input {
+    width: 100%;
+}
+
+.cont-input label {
+    font-size: 20px;
+}
+
+.cont-input input {
+    font-size: 18px;
+    height: 40px;
+    width: 100%;
+    padding: 10px;
+    font-weight: bold;
+    letter-spacing: 1.2px;
+    border-radius: 10px;
+    border: none;
+    background: rgb(239, 239, 239);
+    margin-top: 10px;
+}
+
+.cont-input input:focus {
+    outline: none;
+}
+
+.col-form p {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 12px;
+}
+
+.col-form p span {
+    color: steelblue;
+    cursor: pointer;
+}
+
+.col-form p a {
+    color: steelblue;
+    cursor: pointer;
+}
+
+
+
+
+@media (max-width: 768px) {
+
+    .contenido-div {
+        display: grid;
+        grid-template-columns: 1fr;
+        padding: 30px;
+    }
+
+    .col-img {
+        display: none;
+    }
+
+}
+
+@media (max-width: 576px) {
+    main {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    #contenedor-padre {
+        height: 100vh;
+    }
+
+    .contenido-div {
+        height: 100vh;
+    }
+
+    .col-form {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+    }
+
+
+}
